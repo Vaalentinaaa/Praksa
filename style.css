@@ -1,0 +1,846 @@
+@font-face {
+    font-family: "Aspergit";
+    src: url("CustomFont.eot");
+    src: url("webfontkit-20241117-115711/aspergit-webfont.woff") format("woff"),
+    url("webfontkit-20241117-115711/Aspergit.otf") format("opentype");
+}
+@font-face {
+    font-family: "Futura PT";
+    src: url("CustomFont.eot");
+    src: url("futura-pt-webfont/FuturaCyrillicLight.woff") format("woff"),
+    url("futura-pt-webfont/FuturaCyrillicLight.otf") format("opentype");
+    }
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .scroll-animation {
+        opacity: 0;
+        transition: opacity 3s ease-in-out;
+    }
+    .scroll-animation.active {
+        opacity: 1;
+    }
+body{
+    background-color: #361280;
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+/* Navigacioni Meni */
+.navigacioni_meni{
+    list-style: none;
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    height: 7%;
+    position: sticky;
+    top: 0;
+    padding-top: 1%;
+}
+.navigacioni_meni img{
+    width: 10.57%;
+    height: 2%;
+    padding-left: 7%;
+
+}
+.navigacioni_meni nav{
+    display: flex;
+    padding-right: 7%;
+}
+.navigacioni_meni a{
+    padding: 0% 10%;
+    font-family: Futura PT;
+    text-decoration: none;
+    color: white;
+    width: 30%;
+    height: 70%;
+}
+.navigacioni_meni a:first-child {
+    border-right: 1px solid white; 
+}
+.kruzic1{
+    width: 3%;
+    height: 3%;
+    padding: 0% 50%;
+}
+/* Naslov */
+.naslov{
+    flex: 1;
+    margin: 5% 4% 7% 15%;
+    position: relative;
+    padding: 0%;
+}
+.naslov h1{
+    text-transform: uppercase;
+    font-family: Aspergit;
+    font-weight:600;
+    position: absolute;
+    color: white;
+    font-size: 530%;
+    display:inline;
+    margin: 0%;
+}
+.naslov li {
+    list-style: none;
+    position: relative;
+    color: white;
+    font-size: 150%;
+    padding: 0.5% 0%;
+    list-style: none;
+    margin-left: 100%;
+    width: 10%;
+    margin-top: 0%;
+}
+/* Pod naslov */
+.pod_naslov .kruzic3{
+    display: flexbox;
+    width: 10%;
+    height: 10%;
+    margin-left: 25%;
+    padding-right: 10%;
+    padding-top: 6%;
+    margin-top: 0%;
+}
+.pod_naslov{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height:100%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+.pod_naslov > div {
+    display: flex;
+    align-items: center;
+
+}
+.pod_naslov h4{
+    flex: 1%;
+    width: 90%;
+    height: 100%;
+    font-family: Futura PT;
+    color: white;
+    font-size: 160%;
+    font-weight: normal;
+    position: relative;
+    padding-left: 35% ;
+    margin-top: 0%;
+}
+.pod_naslov button {
+ 
+    align-self: flex-start;
+    margin-left: 35%;
+    padding: 15px 40px;
+    font-size: 100%;
+    font-family: Futura PT; 
+    color: black;
+    background-color: yellow;
+    border: none; 
+    cursor: pointer;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    transition: all 0.3s ease; 
+    width: 30%;
+}
+
+.pod_naslov button:hover {
+    transform: scale(1.05); 
+}
+.pod_naslov .kruzic2 {
+
+    align-self: center; 
+    width: 10%;
+    height: auto;
+}
+/* Slika */ 
+.slika{
+    width: 100%;
+    display: inline-block;
+    margin-top: 0%; 
+}
+.slika .kruzici1 img{
+    width: 5%;
+    height: 5%;
+}
+.slika .strelica{
+    margin-top: -10% ;
+}
+.slika .strelica img{
+    width: 5%;
+    height: auto;
+    align-items: center;
+    padding: 0% 50%;
+}
+.laptop img {
+    display: block;
+    width: 60%;
+    height: auto;
+    margin: 7% 20% 0% 20%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 100;
+    position: relative;
+    left: -100%; /* Početna pozicija van ekrana */
+    opacity: 0; /* Skriveno na početku */
+    transition: left 5s ease, opacity 5s ease; /* Animacija slajdovanja i prikazivanja */
+}
+.laptop img.slide-in {
+    left: 0; /* Ciljna pozicija */
+    opacity: 1; /* Vidljivo */
+}
+.laptop {
+    overflow: visible; /* Osigurava da se animacija vidi */
+    position: relative;
+}
+.kruzici2 img{
+    width: 5%;
+    height: auto;
+    margin-left:100% ;
+}
+/* Dijagram */
+.dijagram h2 {
+    text-transform: uppercase;
+    font-size: 300%;
+    font-family: Aspergit;
+    color: white;
+    margin: 0% 20%;
+}
+.dijagram {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.dijagram .sadrzaj {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0 20%;
+    width: 60%;
+}
+.dijagram .opis {
+    width: 60%;
+}
+.dijagram .opis p {
+    font-family: Futura PT;
+    color: white;
+    margin: 0%;
+}
+.dijagram .strelica2 {
+    margin-left: 20%;
+    width: 5%;
+}
+
+.dijagram .strelica2 img {
+    max-width: 100%;
+    height: auto; 
+}
+.kruzici3 img{
+    width: 50%;
+    margin-top: 100%;
+}
+.dijagram .krugovi img{
+    width: 55%;
+    margin-left: 21%;
+    margin-top: -10%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+/* O NAMA */
+.O_nama {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.naslov-i-slika {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.naslov-i-slika h2 {
+    text-transform: uppercase;
+    font-size: 300%;
+    font-family: Aspergit;
+    color: white;
+    margin: 2% 22%;
+}
+.naslov-i-slika .kruzic_1 img {
+    width: 30%;
+    height: auto;
+}
+.tekstualni-blokovi {
+    display: flex;
+    justify-content: space-between;
+    gap: 5%;
+    width: 55%;
+    margin-left: 22%;
+}
+.tekstualni-blokovi .opis {
+    flex: 1;
+}
+.tekstualni-blokovi h4, .tekstualni-blokovi h5 {
+    margin: 0% 0% 5% 0%;
+    font-family: futura PT;
+    color: white;
+    font-weight: normal;
+}
+.tekstualni-blokovi h4{
+    font-size: 170%;
+
+}
+.kruzic5 img{
+    width: 5%;
+    margin-left: 35%;
+}
+.kruzici_2 img{
+    margin-left: 100%;
+    width: 5%;
+    height: auto;
+    margin-top: -10%;
+}
+/* slike */
+.slike{
+    display: block;
+}
+.kruzic4 img{
+    width: 5%;
+    margin-left: 10%;
+}
+.strelica1 img{
+    width: 5%;
+    height: auto;
+    align-items: center;
+    padding: 0% 50%;
+}
+/* Osnivac */
+.Osnivac {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+.Osnivac .slika{
+    width: 40%;
+}
+.Osnivac .slika img {
+    width: 50%;
+    height: auto;
+    margin-left: 60%;
+}
+.Osnivac .tekst {
+    flex: 1;
+    text-align: left;
+    font-family: futura PT;
+    margin-left: 5% ;
+}
+.Osnivac .tekst h3 {
+    font-size: 200%;
+    margin: 0;
+    color: yellow;
+    font-weight: normal;
+    font-family: Aspergit;
+}
+.Osnivac .tekst p {
+    font-size: 120%;
+    margin: 1% 0%;
+    font-weight: normal;
+    color: white;
+    
+}
+.Osnivac .tekst h5 {
+    font-size: 100%;
+    line-height: 1.6;
+    margin: 1% 3%;
+    width: 50%;
+    color: white;
+    font-weight: normal;
+}
+.krugovi3 img{
+    width: 7%;
+    margin-left: 41%;
+    margin-top: -10%;
+}
+.kruzic6 img{
+    width: 3%;
+    margin-left: 90%;
+}
+/* Ucesnici */
+.ucesnici {
+    font-family: futura pt;
+    margin-left: 22%;
+}
+.ucesnici h2 {
+    font-size: 350%;
+    color: white;
+    font-weight: normal;
+    font-family: Aspergit;
+}
+.ucesnici_slike {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+}
+.ucesnici_slike img {
+    width: 100%;
+    max-width: 70%;
+    height: auto;
+    display: block;
+}
+.ucesnici_slike h4 {
+    font-size: 150%;
+    margin: 10px 0 5px 0;
+    color: yellow;
+    font-weight: normal;
+}
+.ucesnici_slike h5 {
+    font-size: 100%;
+    font-weight: normal;
+    color: white;
+    margin-top: 1%;
+}
+.ucesnici_slike button {
+    align-self: flex-start;
+    padding: 3%;
+    font-size: 100%;
+    font-family: Futura PT; 
+    color: black;
+    background-color: yellow;
+    border: none; 
+    cursor: pointer;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    transition: all 0.3s ease; 
+    width: 70%;
+    margin-top: 2%;
+}
+.ucesnici_slike button:hover {
+    transform: scale(1.05);
+}
+.ucesnici .tekst h4{
+    font-size: 220%;
+    width: 35%;
+    color: white;
+    font-family: futura pt;
+    font-weight: normal;
+}
+/* slike2  */
+.slike2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.gornji-red {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.kruzici_1 img,
+.kruzic_4 img {
+    width:45%;
+    height: auto;
+}
+.slike2 .strelica3 {
+    margin-top: 1%;
+    margin-left: 50%;
+    display: flex;
+    justify-content: center;
+    width: 10%;
+}
+.slike2 .strelica3 img {
+    width: 30%;
+    height: auto;
+}
+/* Pridruzite se */
+.pridruzite_se h2{
+    font-size: 300%;
+    font-family: Aspergit;
+    color: white;
+    margin-left: 22%;
+    width: 40%;
+}
+.pridruzite_se img{
+    margin-left: 22%;
+    width: 60%;
+    height: auto;
+}
+.kruzici_3 img{
+    margin-left: 100%;
+    width: 5%;
+}
+.kruzic__4 img{
+    width: 5%;
+    margin-top: -30%;
+    margin-left: 10%;
+}
+/* upoznavanje */
+.upoznavanje{
+    display:flex;
+}
+.upoznavanje h2{
+    font-size: 300%;
+    font-family: Aspergit;
+    color: white;
+    margin-left: 22%;
+    width: 30%;
+    height: 25%;
+    margin-top: -3%;
+}
+.upoznavanje .kruzic__1 img{
+    width: 35%;
+    margin: -20%;
+    margin-left: 5%;
+}
+video{
+   width:50% ;
+   margin-left: 24%;
+}
+/* slike 3 */
+.slike3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.gornji-red {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.kruzici__2 img{
+    width: 45%;
+    margin:0%;
+    margin-top: 50%;
+}
+.kruzic_4 img {
+    width:45%;
+    height: auto;
+    margin-left: 50%;
+}
+.slike3 .strelica_3 {
+    margin-top: 1%;
+    margin-left: 20%;
+    display: flex;
+    justify-content: center;
+    width: 10%;
+}
+.slike3 .strelica_3 img {
+    width: 20%;
+    height: auto;
+}
+/* NOVOSTI */
+.novosti {
+    width: 100%;
+    display: inline-block;
+
+}
+.novosti h2 {
+    margin-left: 22%;
+    font-size: 300%;
+    font-family:Aspergit ; 
+    color: white;
+}
+.novostiSlike {
+    display:flex;
+    flex-wrap: wrap;
+    gap:2%;
+}
+.novostiSlika {
+    width: 25%;
+    text-align: left;
+}
+.novostiSlika:first-child {
+    margin-left: 22%;
+}
+.novostiSlika img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1%;
+}
+.novostiSlika h5 {
+    font-family: futura pt;
+    font-weight: normal;
+    color: white;
+    margin: 5px 0;
+}
+.novostiSlika h4 {
+    font-family: futura pt;
+    font-size: 150%;
+    font-weight: normal;
+    margin: 10px 0;
+    color:white;
+}
+.novostiSlika h3 {
+    font-family: futura pt;
+    font-weight: normal;
+    color: yellow;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.novostiSlika button {
+    align-self: flex-start;
+    padding: 3%;
+    font-size: 100%;
+    font-family: Futura PT; 
+    color: black;
+    background-color: yellow;
+    border: none; 
+    cursor: pointer;
+    clip-path: polygon(10% 0%, 90% 0%, 100% 50%, 90% 100%, 10% 100%, 0% 50%);
+    transition: all 0.3s ease; 
+    width: 70%;
+    margin-top: 2%;
+}
+.novostiSlika button:hover {
+    transform: scale(1.05);
+}
+/* Slike 4 */
+.Slike4 {
+    display: flex;
+    justify-content: space-between;
+    width:71%; 
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+  .kruzic___4 img{
+    width: 40%;
+  }
+  .strelica___5 img {
+    width: 30%;
+    height: auto;
+  }
+/* footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0%5%;
+    color: white;
+    margin-left: 18%;
+}
+.logo img {
+    width: 60%;
+    max-width: 100%;
+}
+.navigacioni_meni_ {
+    list-style: none;
+    display: block;
+    margin:0% 1%;
+}
+.navigacioni_meni_ a {
+    color: white;
+    text-decoration: none;
+    font-family: futura pt;
+    font-weight: normal;
+    padding:30% 50%;
+}
+.ikonice {
+    display: flex;
+}
+.grupa1,
+.grupa2 {
+    display: flex;
+    flex-direction: column;
+    padding: 10% 20%;
+}
+.ikonice li {
+    font-size: 100%;
+    list-style: none;
+    padding:30% 50%;
+}
+.kruzici5 {
+    display: flex;
+    margin-left: 10%;
+}
+.kruzici5 img {
+    width: 40%;
+    height: auto;
+}
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .naslov h1{
+        font-size: 250%;
+        width: 90%;
+    }
+    .pod_naslov {
+        max-width: 90%;
+        margin-right: 100%;
+    }
+    .dijagram .opis{
+        width: 100%;
+    }
+    .dijagram .strelica2{
+        width: 15%;
+    }
+    .ucesnici {
+        width: 100%;
+    }
+    .pridruzite_se h2 {
+        width: 130%;
+    }
+    .upoznavanje .kruzic__1 img{
+        width: 25%;
+        margin-top: 35%;
+    }
+    .slike3 .strelica_3{
+        width: 30%;
+    }
+}
+
+@media (max-width: 480px){
+    .naslov h1{
+        font-size: 150%;
+        width: 90%;
+    }
+    .pod_naslov {
+        max-width: 90%;
+        margin-right: 100%;
+    }
+    .pod_naslov .kruzic1 img{
+        display: none;
+    }
+    .pod_naslov h4{
+        font-size: 100%;
+    }
+    .dijagram h2{
+        font-size: 150%;
+        margin-bottom: 5%;
+    }
+    .dijagram .opis{
+        width: 100%;
+    }
+    .dijagram p{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .dijagram .kruzici3{
+        width: 10%;
+    }
+    .O_nama .naslov-i-slika h2{
+        font-size: 150%;
+        width: 100%;
+    }
+    .opis h4{
+        font-size: 70%;
+        font-weight: bold;
+        padding-bottom: 5%;
+    }
+    .opis h5 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .Osnivac .tekst {
+        margin-top: 5% ;
+    } 
+    .Osnivac .tekst ,h3{
+        font-size: 60%;
+        width: 90%;
+    } 
+    .Osnivac .tekst h5{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .ucesnici h2 {
+        font-size: 150%;
+    }
+    .ucesnici button{
+        width: 100%;
+        font-size: 70%;
+    }
+    .ucesnici .tekst{
+        width: 200%;
+        font-size: 90%;
+    }
+    .slike2{
+        width: 100%;
+    }
+    .slike2 .kruzici_1 img{
+        width: 25%;
+    }
+    .slike2 .kruzic_4 img{
+        width: 25%;
+        margin-left:100% ;
+    }
+    .slike2 .strelica3 img{
+        width: 100%;
+        margin-right: 70%;
+    }
+    .pridruzite_se h2 {
+        width: 130%;
+    }
+    .slike3 .strelica_3{
+        width: 30%;
+    }
+    .pridruzite_se h2{
+        font-size: 150%;
+    }
+    .upoznavanje{
+        width: 100%;
+    }
+    .upoznavanje h2{
+        font-size: 150%;
+    }
+    .upoznavanje .kruzic__1 img{
+        width: 15%;
+    }
+    .slike3 .kruzici__2{
+        width:25%;
+    }
+    .slike3 .kruzic_4{
+        width: 30%;
+        margin-left: 100%;
+    }
+    .novosti h2{
+        font-size: 150%;
+    }
+    .novostiSlike {
+    justify-content: center;
+  }
+  .novostiSlika {
+    width: 100%;
+  }
+  h5 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .novostiSlike {
+    justify-content: flex-start;
+    margin-left: 20%;
+  }
+  .novostiSlika:first-child {
+    margin-left: 0; /* Ukloni marginu na manjim ekranima */
+  }
+  .novostiSlika button{
+    margin-bottom: 10%;
+  }
+  .Slike4{
+    width: 115%;
+  }
+  .Slike4 .kruzic___4 img{
+    width: 15%;
+  }
+  .Slike4 .strelica___5 img{
+    width: 15%;
+    margin-right: 100%;
+  }
+  .footer{
+    width: 150%;
+  }
+  .footer .logo img{
+    width: 90%;
+  }
+}
